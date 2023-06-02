@@ -13,6 +13,7 @@
 		4971194A2A229E4700267F2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497119482A229E4700267F2B /* Main.storyboard */; };
 		4971194C2A229E4800267F2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4971194B2A229E4800267F2B /* Assets.xcassets */; };
 		4971194F2A229E4800267F2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4971194D2A229E4800267F2B /* LaunchScreen.storyboard */; };
+		4971195E2A2A736F00267F2B /* WeatherInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4971195D2A2A736F00267F2B /* WeatherInputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4971194B2A229E4800267F2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4971194E2A229E4800267F2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497119502A229E4800267F2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4971195D2A2A736F00267F2B /* WeatherInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				497119422A229E4700267F2B /* AppDelegate.swift */,
 				497119442A229E4700267F2B /* SceneDelegate.swift */,
 				497119462A229E4700267F2B /* ViewController.swift */,
+				4971195D2A2A736F00267F2B /* WeatherInputViewController.swift */,
 				497119482A229E4700267F2B /* Main.storyboard */,
 				4971194B2A229E4800267F2B /* Assets.xcassets */,
 				4971194D2A229E4800267F2B /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4971195E2A2A736F00267F2B /* WeatherInputViewController.swift in Sources */,
 				497119472A229E4700267F2B /* ViewController.swift in Sources */,
 				497119432A229E4700267F2B /* AppDelegate.swift in Sources */,
 				497119452A229E4700267F2B /* SceneDelegate.swift in Sources */,
