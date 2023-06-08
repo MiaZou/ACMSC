@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		490D552F2A324DEE005F706D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 490D552E2A324DEE005F706D /* FirebaseAuth */; };
 		490D55312A324DEE005F706D /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = 490D55302A324DEE005F706D /* FirebaseFunctions */; };
+		490D55332A3254DA005F706D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 490D55322A3254DA005F706D /* GoogleService-Info.plist */; };
 		497119432A229E4700267F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119422A229E4700267F2B /* AppDelegate.swift */; };
 		497119452A229E4700267F2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119442A229E4700267F2B /* SceneDelegate.swift */; };
 		497119472A229E4700267F2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119462A229E4700267F2B /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490D55322A3254DA005F706D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4971193F2A229E4700267F2B /* ACMSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACMSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497119422A229E4700267F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497119442A229E4700267F2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				4971194B2A229E4800267F2B /* Assets.xcassets */,
 				4971194D2A229E4800267F2B /* LaunchScreen.storyboard */,
 				497119502A229E4800267F2B /* Info.plist */,
+				490D55322A3254DA005F706D /* GoogleService-Info.plist */,
 			);
 			path = ACMSC;
 			sourceTree = "<group>";
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4971194F2A229E4800267F2B /* LaunchScreen.storyboard in Resources */,
+				490D55332A3254DA005F706D /* GoogleService-Info.plist in Resources */,
 				4971194C2A229E4800267F2B /* Assets.xcassets in Resources */,
 				4971194A2A229E4700267F2B /* Main.storyboard in Resources */,
 			);
