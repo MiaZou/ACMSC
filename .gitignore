@@ -66,3 +66,4 @@ node_modules/
 .env
 
 ACMSC/GoogleService-Info.plist
+ACMSC.xcodeproj
