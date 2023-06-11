@@ -7,6 +7,8 @@
 
 import UIKit
 import Firebase
+import Foundation
+import Alamofire
 
 class RegisterViewController: UIViewController {
     
@@ -18,29 +20,30 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         errorMessage.text = ""
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func registerSubmitButton(_ sender: UIButton) {
-//        errorMessage.text = ""
+        errorMessage.text = ""
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
         
-        Auth.auth().createUser(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                print(e.localizedDescription)
-                self.displayErrorMessage(e.localizedDescription)
-            } else {
-                // Go to our home screen
-                print("Account created successfully!")
-                self.displayErrorMessage("Account created successfully!")
-            }
-
+        Task {
+            await createUserInAuthentication(email: email, password: password)
+        }
+    }
+    
+    func createUserInAuthentication(email: String, password: String) async {
+        do {
+            _ = try await Auth.auth().createUser(withEmail: email, password: password)
+            self.displayErrorMessage("Account created successfully!")
+        } catch {
+            print(error.localizedDescription)
+            self.displayErrorMessage(error.localizedDescription)
         }
     }
     
     func displayErrorMessage(_ message: String) {
-        errorMessage.text = message
+        self.errorMessage.text = message
     }
 
     /*
