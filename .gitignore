@@ -67,3 +67,4 @@ node_modules/
 
 ACMSC/GoogleService-Info.plist
 ACMSC.xcodeproj
+ACMSC/Configuration.swift
