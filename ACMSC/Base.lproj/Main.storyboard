@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSk-Mh-PCO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -167,6 +167,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Submit"/>
                                 <connections>
                                     <action selector="registerSubmitButton:" destination="dn3-7T-qqV" eventType="touchUpInside" id="cNL-tk-xWX"/>
+                                    <segue destination="0j1-qo-QDL" kind="show" id="kUF-9B-jsl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYh-h5-P3n">
@@ -194,56 +195,56 @@
         <!--Hemisphere View Controller-->
         <scene sceneID="d89-j3-hJb">
             <objects>
-                <viewController storyboardIdentifier="hemisphereVC" id="0j1-qo-QDL" customClass="hemisphereViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="hemisphereVC" id="0j1-qo-QDL" customClass="HemisphereViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KKN-1T-pDr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Select Hemisphere" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HI5-T3-169">
-                                <rect key="frame" x="108" y="161" width="196" height="29"/>
+                                <rect key="frame" x="98" y="153" width="196" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="exf-Zl-SLI">
-                                <rect key="frame" x="92" y="498" width="209" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="Ef2-Gq-rnP"/>
-                                    <constraint firstAttribute="height" constant="60" id="kVy-VF-bCU"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tomNook" translatesAutoresizingMaskIntoConstraints="NO" id="fmf-yp-IIz">
+                                <rect key="frame" x="76" y="265" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Q9-Ka-ZuV">
+                                <rect key="frame" x="102" y="519" width="189" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Northern Hemisphere"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Northern Hemisphere"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="3C0-fI-CjI">
-                                <rect key="frame" x="92" y="594" width="211" height="58"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="23q-00-kgl"/>
-                                    <constraint firstAttribute="height" constant="60" id="AzE-e2-vxy"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwU-1w-E98">
+                                <rect key="frame" x="101" y="589" width="191" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Southern Hemisphere">
-                                    <color key="baseBackgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" title="Southern Hemisphere"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayZ-hp-CQ4">
-                                <rect key="frame" x="167" y="706" width="78" height="35"/>
+                                <rect key="frame" x="158" y="693" width="78" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Submit"/>
+                                <connections>
+                                    <action selector="clickToSubmit:" destination="0j1-qo-QDL" eventType="touchUpInside" id="PQW-SS-ize"/>
+                                </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tomNook" translatesAutoresizingMaskIntoConstraints="NO" id="fmf-yp-IIz">
-                                <rect key="frame" x="77" y="266" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="z9A-Nz-uCm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i2c-ds-Nug"/>
+                    <connections>
+                        <outlet property="northernButton" destination="2Q9-Ka-ZuV" id="6hQ-v1-vr4"/>
+                        <outlet property="southernButton" destination="HwU-1w-E98" id="tqS-1m-Zpv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYE-uJ-ymT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031" y="654"/>
+            <point key="canvasLocation" x="1079" y="646"/>
         </scene>
         <!--Weather Input View Controller-->
         <scene sceneID="3W7-Bc-ZXR">
@@ -355,7 +356,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="klA-ey-GDR"/>
+        <segue reference="wc5-Z6-i7n"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add_circle_FILL0_wght400_GRAD0_opsz48" width="48" height="48"/>
