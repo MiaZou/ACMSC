@@ -37,7 +37,23 @@ class SignInViewController: UIViewController {
             self.displayErrorMessage(error.localizedDescription)
             return
         }
-        performSegue(withIdentifier: "SignInSuccess", sender: self)
+        do {
+            let uid = try await getCurrentUserUID()
+            performSegue(withIdentifier: "directToLoadingVC", sender: uid)
+        } catch {
+            print(error.localizedDescription)
+            self.displayErrorMessage(error.localizedDescription)
+            return
+        }
+        
+    }
+    
+    func getCurrentUserUID() async throws -> String {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "YourDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "User is not authenticated."])
+        }
+        
+        return uid
     }
     
     func displayErrorMessage(_ message: String) {
@@ -45,8 +61,12 @@ class SignInViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SignInSuccess" {
-            print("Cool!")
+        print("sender \(String(describing: sender))")
+        if segue.identifier == "directToLoadingVC" {
+            let loadingVC = segue.destination as! LoadingViewController
+            if let uid = sender as? String {
+                loadingVC.uid = uid
+            }
         }
     }
     

@@ -77,11 +77,25 @@ class HemisphereViewController: UIViewController {
                         print("Success!")
                     }
                 }
+                
+                print("line 83")
+                print(uid)
+                performSegue(withIdentifier: "directToLoadingVC", sender: uid)
         
                 task.resume()
             }
         } catch {
             displayPopUp()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("sender \(String(describing: sender))")
+        if segue.identifier == "directToLoadingVC" {
+            let loadingVC = segue.destination as! LoadingViewController
+            if let uid = sender as? String {
+                loadingVC.uid = uid
+            }
         }
     }
     

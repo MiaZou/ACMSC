@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ycq-gF-YfK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jPz-k7-cS2">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -133,7 +133,7 @@
                         <outlet property="actionMessage" destination="gne-eb-Q8V" id="8xw-GS-GvO"/>
                         <outlet property="emailTextField" destination="Iw5-Hz-jWE" id="GpI-uL-8NS"/>
                         <outlet property="passwordTextField" destination="TK5-a8-VrF" id="e1e-Wx-Cbl"/>
-                        <segue destination="Ycq-gF-YfK" kind="show" identifier="SignInSuccess" id="CSL-Ic-RMB"/>
+                        <segue destination="jPz-k7-cS2" kind="show" identifier="directToLoadingVC" id="aKh-gF-y5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9X-3F-yOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,12 +247,40 @@
                     <connections>
                         <outlet property="northernButton" destination="2Q9-Ka-ZuV" id="6hQ-v1-vr4"/>
                         <outlet property="southernButton" destination="HwU-1w-E98" id="tqS-1m-Zpv"/>
-                        <segue destination="Ycq-gF-YfK" kind="show" id="bPd-tf-fMS"/>
+                        <segue destination="jPz-k7-cS2" kind="show" identifier="directToLoadingVC" id="KeN-MY-DFU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYE-uJ-ymT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1059" y="637"/>
+            <point key="canvasLocation" x="332" y="637"/>
+        </scene>
+        <!--Loading View Controller-->
+        <scene sceneID="Gzd-IJ-SUc">
+            <objects>
+                <viewController storyboardIdentifier="loadingVC" id="jPz-k7-cS2" customClass="LoadingViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cXm-Te-GH5">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJ8-mj-1qX">
+                                <rect key="frame" x="163" y="388" width="66" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qxu-s8-kxw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kJw-ND-bIC"/>
+                    <connections>
+                        <segue destination="Ycq-gF-YfK" kind="show" identifier="directToWeatherListVC" id="bgS-sS-q7d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Of4-GA-IgW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047" y="637"/>
         </scene>
         <!--Weather Detail View Controller-->
         <scene sceneID="hYy-lH-0eG">
@@ -335,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebB-hD-7pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1761" y="-30"/>
+            <point key="canvasLocation" x="1760" y="-35"/>
         </scene>
         <!--Weather Input View Controller-->
         <scene sceneID="3W7-Bc-ZXR">
@@ -447,7 +475,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CSL-Ic-RMB"/>
+        <segue reference="KeN-MY-DFU"/>
         <segue reference="klA-ey-GDR"/>
     </inferredMetricsTieBreakers>
     <resources>
