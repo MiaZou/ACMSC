@@ -1,4 +1,4 @@
-//
+////
 //  WeatherListViewController.swift
 //  ACMSC
 //
@@ -26,79 +26,54 @@ extension WeatherData {
         WeatherData(date: "05-29-2023", specialPatterns: 1, weatherTypes: [WeatherType(time: 9, weather: 0), WeatherType(time: 10, weather: 0)]),
         WeatherData(date: "06-01-2023", specialPatterns: 2, weatherTypes: [WeatherType(time: 9, weather: 0), WeatherType(time: 10, weather: 0)])
     ]
-    
+
     static let weathertype = ["Clear/Fine", "Sunny", "Cloudy", "Rain/Snow Clouds", "Rain/Snow", "Heavy Rain/Snow"]
-    
+
     static let specialPatterns = ["None of above", "Meteor shower or visit from Celeste", "No data"]
 }
 
-class WeatherListViewController: UICollectionViewController {
-    
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
-    
-    var dataSource: DataSource!
+class WeatherListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let listLayout = listLayout()
-        collectionView.collectionViewLayout = listLayout
         
-        let cellRegistration = UICollectionView.CellRegistration {
-            (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
-            let weatherData = WeatherData.sampleWeatherData[indexPath.item]
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = weatherData.date
-            cell.contentConfiguration = contentConfiguration
-            cell.accessories = [.outlineDisclosure()]
-        }
-//
-//        let weatherTypeRegistration = UICollectionView.CellRegistration {
-//            (cell: UICollectionViewListCell, indexPath: IndexPath, item: WeatherType) in
-//            let weatherType = WeatherData.sampleWeatherData[indexPath.item].weatherTypes
-//            let stackView = UIStackView(arrangedSubviews: String(weatherType.time), WeatherData.weathertype[weatherType.weather]])
-//
-//        }
-
-        dataSource = DataSource(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
-//            switch item {
-//            case WeatherData(let weatherData):
-//                return collectionView.dequeueConfiguredReusableCell(using: <#T##UICollectionView.CellRegistration<Cell, Item>#>, for: <#T##IndexPath#>, item: <#T##Item?#>)
-//            }
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
-        }
-
-        var snapshot = Snapshot()
-        snapshot.appendSections([0])
-//        var weatherTitles = [String]()
-//        for weather in WeatherData.sampleWeatherData {
-//            snapshot.append([weather])
-//
-//        }
-//        snapshot.appendSections([0])
-        snapshot.appendItems(WeatherData.sampleWeatherData.map { $0.date })
-        dataSource.apply(snapshot)
-        
-        collectionView.dataSource = dataSource
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-    private func listLayout() -> UICollectionViewCompositionalLayout {
-        var listConfiguration = UICollectionLayoutListConfiguration(appearance: .grouped)
-        listConfiguration.showsSeparators = false
-        listConfiguration.backgroundColor = .clear
-        return UICollectionViewCompositionalLayout.list(using: listConfiguration)
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return WeatherData.sampleWeatherData.count
     }
 
-    /*
-    // MARK: - Navigation
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let weatherDataItem = WeatherData.sampleWeatherData[indexPath.section]
+        cell.textLabel?.text = weatherDataItem.date
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let weatherDetail = WeatherData.sampleWeatherData[indexPath.section]
+        performSegue(withIdentifier: "weatherDetailClicked", sender: weatherDetail)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "weatherDetailClicked" {
+            let weatherDetailViewController = segue.destination as! WeatherDetailViewController
+            if let passedData = sender as? WeatherData {
+                weatherDetailViewController.weatherDetail = passedData
+            }
+        }
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Weather Data"
+    }
+    
 }

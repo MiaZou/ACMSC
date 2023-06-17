@@ -21,23 +21,33 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
+        Task { @MainActor in
+            await userSignIn()
+        }
+    }
+    
+    func userSignIn() async {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                print(e.localizedDescription)
-                self.displayErrorMessage(e.localizedDescription)
-            } else {
-                // Go to our home screen
-                print("Account created successfully!")
-                self.displayErrorMessage("Success!")
-            }
+        do {
+            _ = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.displayErrorMessage("Account login successfully!")
+        } catch {
+            print(error.localizedDescription)
+            self.displayErrorMessage(error.localizedDescription)
+            return
         }
+        performSegue(withIdentifier: "SignInSuccess", sender: self)
     }
     
     func displayErrorMessage(_ message: String) {
         actionMessage.text = message
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SignInSuccess" {
+            print("Cool!")
+        }
     }
     
     /*

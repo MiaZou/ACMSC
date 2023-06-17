@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 import Foundation
-import Alamofire
 
 class RegisterViewController: UIViewController {
     

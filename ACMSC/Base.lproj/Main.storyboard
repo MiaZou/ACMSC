@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fPR-jB-bKO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ycq-gF-YfK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -118,6 +118,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9N1-Zb-RMc">
+                                <rect key="frame" x="153" y="736" width="87" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" title="Register"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Fvs-WK-Tkb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -127,11 +133,12 @@
                         <outlet property="actionMessage" destination="gne-eb-Q8V" id="8xw-GS-GvO"/>
                         <outlet property="emailTextField" destination="Iw5-Hz-jWE" id="GpI-uL-8NS"/>
                         <outlet property="passwordTextField" destination="TK5-a8-VrF" id="e1e-Wx-Cbl"/>
+                        <segue destination="Ycq-gF-YfK" kind="show" identifier="SignInSuccess" id="CSL-Ic-RMB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N9X-3F-yOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="-35"/>
+            <point key="canvasLocation" x="356" y="-35"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="zK1-yt-fMu">
@@ -190,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u0c-ZJ-fQe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1078.6259541984732" y="-30.281690140845072"/>
+            <point key="canvasLocation" x="1060" y="-35"/>
         </scene>
         <!--Hemisphere View Controller-->
         <scene sceneID="d89-j3-hJb">
@@ -240,11 +247,95 @@
                     <connections>
                         <outlet property="northernButton" destination="2Q9-Ka-ZuV" id="6hQ-v1-vr4"/>
                         <outlet property="southernButton" destination="HwU-1w-E98" id="tqS-1m-Zpv"/>
+                        <segue destination="Ycq-gF-YfK" kind="show" id="bPd-tf-fMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aYE-uJ-ymT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079" y="646"/>
+            <point key="canvasLocation" x="1059" y="637"/>
+        </scene>
+        <!--Weather Detail View Controller-->
+        <scene sceneID="hYy-lH-0eG">
+            <objects>
+                <viewController storyboardIdentifier="weatherDetailVC" id="MAy-YR-yDw" customClass="WeatherDetailViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wc5-JJ-xTv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mMK-6o-UkJ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="weatherTypeDetailCell" id="YQh-hv-ifg">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YQh-hv-ifg" id="lhn-za-aZs">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OtF-yS-oyf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OtF-yS-oyf" firstAttribute="bottom" secondItem="mMK-6o-UkJ" secondAttribute="bottom" id="Jeq-4u-Ktq"/>
+                            <constraint firstItem="mMK-6o-UkJ" firstAttribute="leading" secondItem="OtF-yS-oyf" secondAttribute="leading" id="WUa-ko-D9H"/>
+                            <constraint firstItem="mMK-6o-UkJ" firstAttribute="top" secondItem="OtF-yS-oyf" secondAttribute="top" id="eGQ-Yd-0iC"/>
+                            <constraint firstItem="OtF-yS-oyf" firstAttribute="trailing" secondItem="mMK-6o-UkJ" secondAttribute="trailing" id="qXm-z9-0Gr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="b0o-Ef-Qny"/>
+                    <connections>
+                        <outlet property="tableView" destination="mMK-6o-UkJ" id="YHx-Zj-YqI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xdh-hM-rQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760" y="637"/>
+        </scene>
+        <!--Weather List View Controller-->
+        <scene sceneID="vEe-ud-7Pu">
+            <objects>
+                <viewController storyboardIdentifier="weatherListVC" id="Ycq-gF-YfK" customClass="WeatherListViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z91-GO-GCa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="a46-Lk-QyQ">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Qli-lf-1oM">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qli-lf-1oM" id="eM4-Z1-fj9">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7Gb-V6-B4u"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7Gb-V6-B4u" firstAttribute="trailing" secondItem="a46-Lk-QyQ" secondAttribute="trailing" id="21E-OX-bgX"/>
+                            <constraint firstItem="7Gb-V6-B4u" firstAttribute="bottom" secondItem="a46-Lk-QyQ" secondAttribute="bottom" id="SCf-nh-K3A"/>
+                            <constraint firstItem="a46-Lk-QyQ" firstAttribute="leading" secondItem="7Gb-V6-B4u" secondAttribute="leading" id="cGn-x8-WJY"/>
+                            <constraint firstItem="a46-Lk-QyQ" firstAttribute="top" secondItem="7Gb-V6-B4u" secondAttribute="top" id="ux8-aQ-r9F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jeu-bp-m0E"/>
+                    <connections>
+                        <outlet property="tableView" destination="a46-Lk-QyQ" id="izr-2J-hzV"/>
+                        <segue destination="MAy-YR-yDw" kind="show" identifier="weatherDetailClicked" id="N5a-i7-GXM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebB-hD-7pf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1761" y="-30"/>
         </scene>
         <!--Weather Input View Controller-->
         <scene sceneID="3W7-Bc-ZXR">
@@ -334,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lpG-7w-SpP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828.2442748091603" y="-35.211267605633807"/>
+            <point key="canvasLocation" x="2457" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rww-Lo-83H">
@@ -356,7 +447,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wc5-Z6-i7n"/>
+        <segue reference="CSL-Ic-RMB"/>
+        <segue reference="klA-ey-GDR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add_circle_FILL0_wght400_GRAD0_opsz48" width="48" height="48"/>

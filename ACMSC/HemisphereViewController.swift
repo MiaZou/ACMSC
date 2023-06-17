@@ -59,6 +59,7 @@ class HemisphereViewController: UIViewController {
             let uid = try await getCurrentUserUID()
             if uid == "" {
                 displayPopUp()
+                return
             } else {
                 let url = URL(string: Configuration.apiUrl + "/users/" + uid + "/" + String(hemisphere))!
                 
