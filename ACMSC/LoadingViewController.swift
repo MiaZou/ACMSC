@@ -27,7 +27,7 @@ import UIKit
 
 class LoadingViewController: UIViewController {
     
-    var uid: String! = "g8ZqFdPgmBYDxHHVgKTYC1jVLKr2"
+    var uid: String! = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
