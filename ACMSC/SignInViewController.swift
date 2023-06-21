@@ -21,23 +21,53 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func signInButton(_ sender: UIButton) {
+        Task { @MainActor in
+            await userSignIn()
+        }
+    }
+    
+    func userSignIn() async {
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else { return }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { firebaseResult, error in
-            if let e = error {
-                print(e.localizedDescription)
-                self.displayErrorMessage(e.localizedDescription)
-            } else {
-                // Go to our home screen
-                print("Account created successfully!")
-                self.displayErrorMessage("Success!")
-            }
+        do {
+            _ = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.displayErrorMessage("Account login successfully!")
+        } catch {
+            print(error.localizedDescription)
+            self.displayErrorMessage(error.localizedDescription)
+            return
         }
+        do {
+            let uid = try await getCurrentUserUID()
+            performSegue(withIdentifier: "directToLoadingVC", sender: uid)
+        } catch {
+            print(error.localizedDescription)
+            self.displayErrorMessage(error.localizedDescription)
+            return
+        }
+        
+    }
+    
+    func getCurrentUserUID() async throws -> String {
+        guard let uid = Auth.auth().currentUser?.uid else {
+            throw NSError(domain: "YourDomain", code: 0, userInfo: [NSLocalizedDescriptionKey: "User is not authenticated."])
+        }
+        
+        return uid
     }
     
     func displayErrorMessage(_ message: String) {
         actionMessage.text = message
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("sender \(String(describing: sender))")
+        if segue.identifier == "directToLoadingVC" {
+            let loadingVC = segue.destination as! LoadingViewController
+            if let uid = sender as? String {
+                loadingVC.uid = uid
+            }
+        }
     }
     
     /*
