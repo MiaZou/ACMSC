@@ -7,9 +7,9 @@
 
 import UIKit
 
-class WeatherDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+let weathertype = ["Clear/Fine", "Sunny", "Cloudy", "Rain/Snow Clouds", "Rain/Snow", "Heavy Rain/Snow"]
 
-    let weathertype = ["Clear/Fine", "Sunny", "Cloudy", "Rain/Snow Clouds", "Rain/Snow", "Heavy Rain/Snow"]
+class WeatherDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     let specialPatterns = ["None of above", "Meteor shower or visit from Celeste", "No data"]
     
     @IBOutlet weak var tableView: UITableView!
