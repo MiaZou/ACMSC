@@ -7,30 +7,6 @@
 //
 import UIKit
 import Foundation
-//
-//struct WeatherType {
-//    var time: Int
-//    var weather: Int
-//}
-//
-//struct WeatherData {
-//    var date: String
-//    var specialPattern: Int
-//    var weatherTypes: [WeatherType]
-//    var possiblePatterns: Int? = nil
-//}
-//
-//extension WeatherData {
-//    static let sampleWeatherData: [WeatherData] = [
-//        WeatherData(date: "05-28-2023", specialPattern: 0, weatherTypes: [WeatherType(time: 9, weather: 0), WeatherType(time: 10, weather: 0)]),
-//        WeatherData(date: "05-29-2023", specialPattern: 1, weatherTypes: [WeatherType(time: 9, weather: 0), WeatherType(time: 10, weather: 0)]),
-//        WeatherData(date: "06-01-2023", specialPattern: 2, weatherTypes: [WeatherType(time: 9, weather: 0), WeatherType(time: 10, weather: 0)])
-//    ]
-//
-//    static let weathertype = ["Clear/Fine", "Sunny", "Cloudy", "Rain/Snow Clouds", "Rain/Snow", "Heavy Rain/Snow"]
-//
-//    static let specialPatterns = ["None of above", "Meteor shower or visit from Celeste", "No data"]
-//}
 
 class WeatherListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 

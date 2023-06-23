@@ -28,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490A031F2A44040900FA39D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		4939DCBE2A38E4C600FD2256 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		4939DCC02A38E57B00FD2256 /* HemisphereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HemisphereViewController.swift; sourceTree = "<group>"; };
 		4939DCC52A38E5F500FD2256 /* PopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUp.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				497119492A229E4700267F2B /* Base */,
+				490A031F2A44040900FA39D7 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
