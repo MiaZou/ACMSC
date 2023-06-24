@@ -25,6 +25,7 @@
 		49B811212A3BB11B00A26C10 /* WeatherListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B811202A3BB11B00A26C10 /* WeatherListViewController.swift */; };
 		49B811232A3D1CFA00A26C10 /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B811222A3D1CFA00A26C10 /* WeatherDetailViewController.swift */; };
 		49B811252A3D5FAB00A26C10 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B811242A3D5FAB00A26C10 /* LoadingViewController.swift */; };
+		49F029842A47587B009F03DA /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49F029832A47587B009F03DA /* CalculateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		49B811202A3BB11B00A26C10 /* WeatherListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewController.swift; sourceTree = "<group>"; };
 		49B811222A3D1CFA00A26C10 /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
 		49B811242A3D5FAB00A26C10 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		49F029832A47587B009F03DA /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				49B811222A3D1CFA00A26C10 /* WeatherDetailViewController.swift */,
 				4939DCCB2A38E9A600FD2256 /* WeatherInputViewController.swift */,
 				49B811242A3D5FAB00A26C10 /* LoadingViewController.swift */,
+				49F029832A47587B009F03DA /* CalculateViewController.swift */,
 				4939DCC52A38E5F500FD2256 /* PopUp.swift */,
 				4939DCD32A38EB2600FD2256 /* PopUp.xib */,
 				4939DCBE2A38E4C600FD2256 /* Configuration.swift */,
@@ -189,6 +192,7 @@
 				4939DCCA2A38E97500FD2256 /* RegisterViewController.swift in Sources */,
 				497119432A229E4700267F2B /* AppDelegate.swift in Sources */,
 				4939DCBF2A38E4C600FD2256 /* Configuration.swift in Sources */,
+				49F029842A47587B009F03DA /* CalculateViewController.swift in Sources */,
 				4939DCC62A38E5F500FD2256 /* PopUp.swift in Sources */,
 				49B811212A3BB11B00A26C10 /* WeatherListViewController.swift in Sources */,
 				49B811232A3D1CFA00A26C10 /* WeatherDetailViewController.swift in Sources */,
