@@ -17,11 +17,53 @@ class WeatherListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let toolbarView = UIView()
+        toolbarView.backgroundColor = .lightGray
+        
+        // Set the frame and autoresizing mask for the toolbar view
+        toolbarView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 44)
+        toolbarView.autoresizingMask = [.flexibleWidth]
+        
+        // Create toolbar items
+        let addButton = UIButton(type: .system)
+        addButton.setTitle("Add", for: .normal)
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        
+        let calculateButton = UIButton(type: .system)
+        calculateButton.setTitle("Calculate", for: .normal)
+        calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
+        
+        // Add toolbar items to the toolbar view
+        toolbarView.addSubview(addButton)
+        toolbarView.addSubview(calculateButton)
+        
+        // Position the toolbar items within the toolbar view
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        calculateButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            addButton.leadingAnchor.constraint(equalTo: toolbarView.leadingAnchor, constant: 16),
+            addButton.centerYAnchor.constraint(equalTo: toolbarView.centerYAnchor),
+
+            calculateButton.trailingAnchor.constraint(equalTo: toolbarView.trailingAnchor, constant: -16),
+            calculateButton.centerYAnchor.constraint(equalTo: toolbarView.centerYAnchor)
+        ])
+        
+        // Add the toolbar view as a subview to the main view
+        view.addSubview(toolbarView)
+        
         tableView.delegate = self
         tableView.dataSource = self
         weatherData = userData?.weatherData ?? []
     }
-
+    
+    @objc func addButtonTapped() {
+        print("addButton tapped!")
+    }
+    
+    @objc func calculateButtonTapped() {
+        print("calculateButton tapped!")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return weatherData.count
