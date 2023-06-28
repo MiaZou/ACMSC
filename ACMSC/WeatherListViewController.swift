@@ -11,46 +11,19 @@ import Foundation
 class WeatherListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var userData: UserDataModel! = nil
     var weatherData: [WeatherDataModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let toolbarView = UIView()
-        toolbarView.backgroundColor = .lightGray
-        
-        // Set the frame and autoresizing mask for the toolbar view
-        toolbarView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 44)
-        toolbarView.autoresizingMask = [.flexibleWidth]
-        
-        // Create toolbar items
-        let addButton = UIButton(type: .system)
-        addButton.setTitle("Add", for: .normal)
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        
-        let calculateButton = UIButton(type: .system)
-        calculateButton.setTitle("Calculate", for: .normal)
-        calculateButton.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
-        
-        // Add toolbar items to the toolbar view
-        toolbarView.addSubview(addButton)
-        toolbarView.addSubview(calculateButton)
-        
-        // Position the toolbar items within the toolbar view
-        addButton.translatesAutoresizingMaskIntoConstraints = false
-        calculateButton.translatesAutoresizingMaskIntoConstraints = false
+        // Create UIBarButtonItems
+        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
+        let calculateButton = UIBarButtonItem(title: "Calculate", style: .plain, target: self, action: #selector(calculateButtonTapped))
 
-        NSLayoutConstraint.activate([
-            addButton.leadingAnchor.constraint(equalTo: toolbarView.leadingAnchor, constant: 16),
-            addButton.centerYAnchor.constraint(equalTo: toolbarView.centerYAnchor),
-
-            calculateButton.trailingAnchor.constraint(equalTo: toolbarView.trailingAnchor, constant: -16),
-            calculateButton.centerYAnchor.constraint(equalTo: toolbarView.centerYAnchor)
-        ])
-        
-        // Add the toolbar view as a subview to the main view
-        view.addSubview(toolbarView)
+        // Set the UIBarButtonItems to the navigationItem's rightBarButtonItems property
+        navigationItem.rightBarButtonItems = [addButton, calculateButton]
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -58,7 +31,7 @@ class WeatherListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc func addButtonTapped() {
-        print("addButton tapped!")
+        performSegue(withIdentifier: "addWeather", sender: userData)
     }
     
     @objc func calculateButtonTapped() {
@@ -91,6 +64,11 @@ class WeatherListViewController: UIViewController, UITableViewDelegate, UITableV
             let weatherDetailViewController = segue.destination as! WeatherDetailViewController
             if let passedData = sender as? WeatherDataModel {
                 weatherDetailViewController.weatherDetail = passedData
+            }
+        } else if segue.identifier == "addWeather" {
+            let addWeatherVC = segue.destination as! WeatherInputViewController
+            if let userData = sender as? UserDataModel {
+                addWeatherVC.userData = userData
             }
         }
     }

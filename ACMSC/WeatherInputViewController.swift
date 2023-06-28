@@ -9,6 +9,7 @@ import UIKit
 
 class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var userData: UserDataModel?
     let timeDropdownData = ["0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
     
     var specialPattern: Int = 0
@@ -152,6 +153,7 @@ class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPick
         Task {
             do {
                 try await addWeatherData()
+                self.displaySuccessVC()
             } catch {
                 print(error.localizedDescription)
             }
@@ -178,10 +180,14 @@ class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPick
                 return
             } else if let data = data {
                 let result = String(data: data, encoding: .utf8)
-                print(result ?? "No result returned.")
+                print(result ?? "result not returned.")
             }
         }
         
         task.resume()
+    }
+    
+    func displaySuccessVC() {
+        performSegue(withIdentifier: "successAdd", sender: userData)
     }
 }
