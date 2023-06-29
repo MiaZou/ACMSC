@@ -9,12 +9,11 @@ import UIKit
 
 class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    var userData: UserDataModel?
     let timeDropdownData = ["0", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"]
     
     var specialPattern: Int = 0
     var date: String = ""
-    var selectedTime: Int = 0
-    var selectedWeatherType: Int = 0
     var weatherType: WeatherTypeModel = WeatherTypeModel(time: 0, weather: 0)
     
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -78,6 +77,16 @@ class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPick
         specialPatternsMeteorShower.layer.borderWidth = 0.0
         specialPatternsNone.layer.borderColor = UIColor.systemBlue.cgColor
         specialPatternsNone.layer.borderWidth = 2.0
+    }
+    
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+        let selectedDate = sender.date
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone.current
+
+        date = dateFormatter.string(from: selectedDate)
     }
     
     @objc func timeDropdownButtonTapped() {
@@ -144,6 +153,7 @@ class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPick
         Task {
             do {
                 try await addWeatherData()
+                self.displaySuccessVC()
             } catch {
                 print(error.localizedDescription)
             }
@@ -157,28 +167,27 @@ class WeatherInputViewController: UIViewController, UIPickerViewDelegate, UIPick
         
         var request = URLRequest(url: url)
         request.httpMethod = "PUT"
-        
+
         let params = WeatherDataModel(date: date, specialPattern: specialPattern, weatherTypes: [weatherType])
-        // ["date": date, "specialPattern": specialPattern, "weatherTypes": [weatherType]] as [String : Any]
-        do {
-            let jsonData = try JSONEncoder().encode(params)
-            request.httpBody = jsonData
-        } catch {
-            print("json error here")
-        }
+
+        let jsonData = try JSONEncoder().encode(params)
+        request.httpBody = jsonData
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 print("Error: \(error)")
                 return
-            }
-            
-            if let data = data {
-                _ = String(data: data, encoding: .utf8)
-                print("Success!")
+            } else if let data = data {
+                let result = String(data: data, encoding: .utf8)
+                print(result ?? "result not returned.")
             }
         }
         
         task.resume()
+    }
+    
+    func displaySuccessVC() {
+        performSegue(withIdentifier: "successAdd", sender: userData)
     }
 }

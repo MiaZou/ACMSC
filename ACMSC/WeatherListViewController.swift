@@ -11,17 +11,32 @@ import Foundation
 class WeatherListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var userData: UserDataModel! = nil
     var weatherData: [WeatherDataModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Create UIBarButtonItems
+        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addButtonTapped))
+        let calculateButton = UIBarButtonItem(title: "Calculate", style: .plain, target: self, action: #selector(calculateButtonTapped))
+
+        // Set the UIBarButtonItems to the navigationItem's rightBarButtonItems property
+        navigationItem.rightBarButtonItems = [addButton, calculateButton]
+        
         tableView.delegate = self
         tableView.dataSource = self
         weatherData = userData?.weatherData ?? []
     }
-
+    
+    @objc func addButtonTapped() {
+        performSegue(withIdentifier: "addWeather", sender: userData)
+    }
+    
+    @objc func calculateButtonTapped() {
+        print("calculateButton tapped!")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return weatherData.count
@@ -49,6 +64,11 @@ class WeatherListViewController: UIViewController, UITableViewDelegate, UITableV
             let weatherDetailViewController = segue.destination as! WeatherDetailViewController
             if let passedData = sender as? WeatherDataModel {
                 weatherDetailViewController.weatherDetail = passedData
+            }
+        } else if segue.identifier == "addWeather" {
+            let addWeatherVC = segue.destination as! WeatherInputViewController
+            if let userData = sender as? UserDataModel {
+                addWeatherVC.userData = userData
             }
         }
     }
