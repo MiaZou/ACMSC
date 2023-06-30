@@ -20,6 +20,7 @@ struct UserDataModel: Codable {
     var uid: String
     var hemisphere: Int
     var weatherData: [WeatherDataModel]
+    var weatherSeed: String?
 }
 
 
