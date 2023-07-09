@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aSk-Mh-PCO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pmQ-DZ-47I">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -598,6 +598,88 @@
             </objects>
             <point key="canvasLocation" x="3138" y="-35"/>
         </scene>
+        <!--Weather Calendar View Controller-->
+        <scene sceneID="3pb-zN-LPm">
+            <objects>
+                <viewController id="pmQ-DZ-47I" customClass="WeatherCalendarViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wUW-B5-Zir">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7ap-iA-dC8">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0cx-Ot-CLx">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0cx-Ot-CLx" id="xbL-8L-JaX">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HFU-wW-SiW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7ap-iA-dC8" firstAttribute="leading" secondItem="HFU-wW-SiW" secondAttribute="leading" id="2ia-uV-qAx"/>
+                            <constraint firstItem="7ap-iA-dC8" firstAttribute="top" secondItem="HFU-wW-SiW" secondAttribute="top" id="GMS-le-TNk"/>
+                            <constraint firstItem="HFU-wW-SiW" firstAttribute="trailing" secondItem="7ap-iA-dC8" secondAttribute="trailing" id="Kv9-Wm-u72"/>
+                            <constraint firstItem="HFU-wW-SiW" firstAttribute="bottom" secondItem="7ap-iA-dC8" secondAttribute="bottom" id="N4p-6e-Fa0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="7ap-iA-dC8" id="4Qi-B1-Lzo"/>
+                        <segue destination="5kT-tu-dnS" kind="show" identifier="weatherCalendarDetailSegue" id="Hwp-Nq-7Hg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pFJ-5g-QKK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="309" y="1320"/>
+        </scene>
+        <!--Weather Calendar Detail View Controller-->
+        <scene sceneID="1qI-3h-tR1">
+            <objects>
+                <viewController id="5kT-tu-dnS" customClass="WeatherCalendarDetailViewController" customModule="ACMSC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aJJ-Nk-2a7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bB9-HF-Qdl">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="hzy-5R-6WH">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzy-5R-6WH" id="9gg-Py-Wb2">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="36j-V0-PaC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="36j-V0-PaC" firstAttribute="trailing" secondItem="bB9-HF-Qdl" secondAttribute="trailing" id="7tf-lH-VOj"/>
+                            <constraint firstItem="bB9-HF-Qdl" firstAttribute="leading" secondItem="36j-V0-PaC" secondAttribute="leading" id="ASC-Ry-48m"/>
+                            <constraint firstItem="36j-V0-PaC" firstAttribute="bottom" secondItem="bB9-HF-Qdl" secondAttribute="bottom" id="BBc-Um-nEG"/>
+                            <constraint firstItem="bB9-HF-Qdl" firstAttribute="top" secondItem="36j-V0-PaC" secondAttribute="top" id="cZK-Ns-epm"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hjC-kp-CNZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="bB9-HF-Qdl" id="Ciz-HD-c8O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rsh-tn-ht7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-421" y="1320"/>
+        </scene>
         <!--Weather Seed View Controller-->
         <scene sceneID="NfT-Nn-gLM">
             <objects>
@@ -692,7 +774,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aKh-gF-y5z"/>
-        <segue reference="klA-ey-GDR"/>
+        <segue reference="wc5-Z6-i7n"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="add_circle_FILL0_wght400_GRAD0_opsz48" width="48" height="48"/>

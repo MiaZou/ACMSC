@@ -16,6 +16,8 @@
 		4939DCCC2A38E9A600FD2256 /* WeatherInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4939DCCB2A38E9A600FD2256 /* WeatherInputViewController.swift */; };
 		4939DCD02A38EAF000FD2256 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4939DCCF2A38EAF000FD2256 /* GoogleService-Info.plist */; };
 		4939DCD42A38EB2600FD2256 /* PopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939DCD32A38EB2600FD2256 /* PopUp.xib */; };
+		493DF9EB2A59FF8A00DFE1E6 /* WeatherCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493DF9EA2A59FF8A00DFE1E6 /* WeatherCalendarViewController.swift */; };
+		493DF9ED2A5B2CBB00DFE1E6 /* WeatherCalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493DF9EC2A5B2CBB00DFE1E6 /* WeatherCalendarDetailViewController.swift */; };
 		497119432A229E4700267F2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119422A229E4700267F2B /* AppDelegate.swift */; };
 		497119452A229E4700267F2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119442A229E4700267F2B /* SceneDelegate.swift */; };
 		497119472A229E4700267F2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497119462A229E4700267F2B /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 		4939DCCB2A38E9A600FD2256 /* WeatherInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInputViewController.swift; sourceTree = "<group>"; };
 		4939DCCF2A38EAF000FD2256 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4939DCD32A38EB2600FD2256 /* PopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopUp.xib; sourceTree = "<group>"; };
+		493DF9EA2A59FF8A00DFE1E6 /* WeatherCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCalendarViewController.swift; sourceTree = "<group>"; };
+		493DF9EC2A5B2CBB00DFE1E6 /* WeatherCalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCalendarDetailViewController.swift; sourceTree = "<group>"; };
 		4971193F2A229E4700267F2B /* ACMSC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ACMSC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497119422A229E4700267F2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		497119442A229E4700267F2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				4939DCCB2A38E9A600FD2256 /* WeatherInputViewController.swift */,
 				49B811202A3BB11B00A26C10 /* WeatherListViewController.swift */,
 				49998B2B2A4F8BAB00DFF415 /* WeatherSeedViewController.swift */,
+				493DF9EA2A59FF8A00DFE1E6 /* WeatherCalendarViewController.swift */,
+				493DF9EC2A5B2CBB00DFE1E6 /* WeatherCalendarDetailViewController.swift */,
 			);
 			path = ACMSC;
 			sourceTree = "<group>";
@@ -202,10 +208,12 @@
 				49F029842A47587B009F03DA /* CalculateViewController.swift in Sources */,
 				4939DCC62A38E5F500FD2256 /* PopUp.swift in Sources */,
 				49B811212A3BB11B00A26C10 /* WeatherListViewController.swift in Sources */,
+				493DF9ED2A5B2CBB00DFE1E6 /* WeatherCalendarDetailViewController.swift in Sources */,
 				49B811232A3D1CFA00A26C10 /* WeatherDetailViewController.swift in Sources */,
 				49998B2C2A4F8BAB00DFF415 /* WeatherSeedViewController.swift in Sources */,
 				497119452A229E4700267F2B /* SceneDelegate.swift in Sources */,
 				49B811252A3D5FAB00A26C10 /* LoadingViewController.swift in Sources */,
+				493DF9EB2A59FF8A00DFE1E6 /* WeatherCalendarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
