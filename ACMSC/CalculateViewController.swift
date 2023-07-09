@@ -214,6 +214,23 @@ class CalculateViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    func categorizeDataByPattern(weatherDataList: [String: [WeatherTypeModel]]) -> [String: [Int]] {
+        var result: [String: [Int]] = [:]
+        for (date, types) in weatherDataList {
+            result[date] = []
+            for (index, pattern) in Patterns.enumerated() {
+                var matches = types.count
+                for type in types {
+                    if pattern[type.time].rawValue == type.weather { matches -= 1 }
+                    else { break }
+                }
+                if matches == 0 { result[date]?.append(index)}
+            }
+        }
+        
+        return result
+    }
+    
     func getCloudLevel(hemi: Hemisphere, month: UInt8, day: UInt8) -> CloudLevel {
         switch (hemi, month, day) {
         case (.Northern, 7, 21...31), (.Northern, 8, _), (.Northern, 9, 1...15):
